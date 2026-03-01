@@ -1,134 +1,72 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
 import "./ProgresLaporan.css";
+import { motion } from "framer-motion";
 
-// Mock Data Progres Berat Badan Mingguan
-const weightData = [
-  { minggu: "Minggu 1", berat: 70 },
-  { minggu: "Minggu 2", berat: 69.2 },
-  { minggu: "Minggu 3", berat: 68.5 },
-  { minggu: "Minggu 4", berat: 68.0 }, // Target saat ini
-];
-
-const ProgresLaporan = () => {
-  const fadeUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+const SustainabilityAnalytics = () => {
+  const cards = [
+    { label: "Food Saved", value: "142.8 kg", icon: "♻️", color: "#10b981", trend: "+12%" },
+    { label: "Cost Saved", value: "Rp 2.45M", icon: "💰", color: "#3b82f6", trend: "+8%" },
+    { label: "CO2 Reduction", value: "28.5 kg", icon: "🌍", color: "#059669", trend: "+15%" },
+  ];
 
   return (
-    <div className="progres-layout">
-      {/* --- TOP BAR --- */}
-      <header className="top-bar-progres">
-        <Link to="/dashboard" className="btn-back">
-          <span>←</span> Kembali
-        </Link>
-        <div className="progres-header-title">
-          <h3>Laporan Progres</h3>
-          <p>Pantau hasil kerja kerasmu</p>
-        </div>
-        <div style={{ width: "80px" }}></div>
+    <div className="analytics-page-wrapper">
+      <header className="analytics-header">
+        <h1>📈 Sustainability Analytics</h1>
+        <p>Lacak kontribusi Anda dalam mengurangi sampah makanan dan emisi karbon.</p>
       </header>
 
-      <main className="progres-content">
-        {/* Ringkasan Cepat */}
-        <motion.div
-          className="summary-cards"
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-        >
-          <div className="summary-card">
-            <span className="summary-icon">📉</span>
-            <div>
-              <p>Total Penurunan</p>
-              <h4>-2.0 kg</h4>
+      <div className="analytics-summary-grid">
+        {cards.map((card, i) => (
+          <motion.div 
+            key={i} 
+            className="summary-card"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+          >
+            <div className="card-icon" style={{ background: `${card.color}15` }}>{card.icon}</div>
+            <div className="card-data">
+              <span className="label">{card.label}</span>
+              <h2 style={{ color: card.color }}>{card.value}</h2>
+              <span className="trend-up">{card.trend} from last month</span>
             </div>
-          </div>
-          <div className="summary-card">
-            <span className="summary-icon">🔥</span>
-            <div>
-              <p>Rata-rata Kalori</p>
-              <h4>1,950 kcal/hari</h4>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        ))}
+      </div>
 
-        {/* Grafik Interaktif dengan Recharts */}
-        <motion.div
-          className="chart-container"
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          transition={{ delay: 0.2 }}
-        >
-          <div className="chart-header">
-            <h4>Grafik Berat Badan</h4>
-            <span className="badge-time">1 Bulan Terakhir</span>
+      <div className="analytics-main-grid">
+        <div className="chart-container-glass bento-main">
+          <h3>Weekly Waste Reduction Trend</h3>
+          <div className="visual-chart">
+            {[65, 45, 85, 30, 95, 55, 75].map((h, i) => (
+              <div key={i} className="bar-wrapper">
+                <motion.div 
+                  className="bar-fill-v2" 
+                  initial={{ height: 0 }} 
+                  animate={{ height: `${h}%` }}
+                  transition={{ duration: 1, delay: i * 0.1 }}
+                ></motion.div>
+                <span className="day-label">{['S','S','R','K','J','S','M'][i]}</span>
+              </div>
+            ))}
           </div>
-          <div className="chart-wrapper">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart
-                data={weightData}
-                margin={{ top: 20, right: 30, left: 0, bottom: 0 }}
-              >
-                <CartesianGrid
-                  strokeDasharray="3 3"
-                  vertical={false}
-                  stroke="#e2e8f0"
-                />
-                <XAxis
-                  dataKey="minggu"
-                  axisLine={false}
-                  tickLine={false}
-                  tick={{ fill: "#64748b" }}
-                  dy={10}
-                />
-                <YAxis
-                  domain={["dataMin - 1", "dataMax + 1"]}
-                  axisLine={false}
-                  tickLine={false}
-                  tick={{ fill: "#64748b" }}
-                  dx={-10}
-                />
-                <Tooltip
-                  contentStyle={{
-                    borderRadius: "12px",
-                    border: "none",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-                  }}
-                  labelStyle={{ fontWeight: "bold", color: "#1e293b" }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="berat"
-                  stroke="#e53935"
-                  strokeWidth={4}
-                  dot={{
-                    r: 6,
-                    fill: "#e53935",
-                    strokeWidth: 2,
-                    stroke: "#fff",
-                  }}
-                  activeDot={{ r: 8, fill: "#10b981" }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+        </div>
+
+        <div className="impact-info-glass bento-side">
+          <h3>Environmental Tips</h3>
+          <div className="tip-item">
+            <span className="tip-num">01</span>
+            <p>Simpan apel terpisah dari pisang untuk mencegah pematangan prematur.</p>
           </div>
-        </motion.div>
-      </main>
+          <div className="tip-item">
+            <span className="tip-num">02</span>
+            <p>Buah yang hampir busuk sangat ideal untuk dijadikan smoothie sehat.</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default ProgresLaporan;
+export default SustainabilityAnalytics;

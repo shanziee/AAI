@@ -1,400 +1,361 @@
-/* src/components/Dashboard.css */
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
-
-.dash-wrapper {
+.pro-dashboard-wrapper {
+  display: flex;
   min-height: 100vh;
-  background-color: #f1f5f9;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  padding-bottom: 60px;
+  background: #f1f5f9;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* --- TOP BAR (Redesign Merah Elegan) --- */
-.dash-topbar {
-  background: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
-  padding: 30px 5% 80px 5%; /* Padding bawah ekstra untuk efek melayang card */
+/* SIDEBAR */
+.pro-sidebar {
+  width: 280px;
+  background: #0f172a;
+  padding: 40px 20px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+}
+
+.sidebar-logo {
   color: white;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  box-shadow: 0 10px 30px rgba(229, 57, 53, 0.2);
-}
-
-.dash-greeting p {
-  margin: 0 0 5px 0;
-  font-size: 0.9rem;
-  color: #ffcdd2;
-  font-weight: 500;
-}
-
-.dash-greeting h2 {
-  margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  letter-spacing: -0.5px;
-}
-
-.dash-actions {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
+  margin-bottom: 50px;
 }
 
-.icon-btn-glass {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  width: 45px;
-  height: 45px;
+.logo-dot {
+  width: 12px;
+  height: 12px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #10b981;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #94a3b8;
+  padding: 14px 20px;
   border-radius: 14px;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  position: relative;
+  font-weight: 600;
   transition: all 0.3s;
 }
 
-.icon-btn-glass:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
+.nav-item:hover, .nav-item.active {
+  background: rgba(255,255,255,0.05);
+  color: white;
 }
 
-.badge-dot {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  width: 8px;
-  height: 8px;
-  background: #ffeb3b;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #ffeb3b;
+.nav-item.active {
+  background: #10b981;
+  color: white;
 }
 
-.dash-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  border: 2px solid white;
-  object-fit: cover;
-  transition: transform 0.3s;
-}
-.dash-avatar:hover {
-  transform: scale(1.05) rotate(5deg);
+.nav-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 20px 0;
 }
 
-/* --- MAIN CONTENT --- */
-.dash-main {
-  max-width: 1100px;
-  margin: -50px auto 0; /* Menarik konten ke atas agar melayang di atas header merah */
-  padding: 0 5%;
+.sidebar-user {
+  margin-top: auto;
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 16px;
   display: flex;
-  flex-direction: column;
-  gap: 25px;
+  align-items: center;
+  gap: 12px;
 }
 
-/* HERO CALORIE CARD */
-.hero-cal-card {
-  background: #1e293b;
-  border-radius: 24px;
-  padding: 35px;
+.sidebar-user img {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+}
+
+.user-info .name {
+  color: white;
+  font-weight: 700;
+  margin: 0;
+}
+
+.user-info .role {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* MAIN CONTENT */
+.pro-main {
+  flex: 1;
+  margin-left: 280px;
+  padding: 40px 50px;
+}
+
+.pro-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 40px;
+}
+
+.header-text h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.header-text p {
+  color: #64748b;
+  margin-top: 5px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.btn-pro-primary {
+  background: #10b981;
   color: white;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  padding: 12px 25px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+}
+
+/* BENTO GRID */
+.pro-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 24px;
+}
+
+.bento-item {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
   position: relative;
   overflow: hidden;
 }
 
-.hero-cal-card::before {
-  content: "";
+/* Main Impact Box */
+.main-impact {
+  grid-column: span 2;
+  background: #0f172a;
+  color: white;
+}
+
+.impact-bg-shape {
   position: absolute;
   top: -50px;
   right: -50px;
   width: 200px;
   height: 200px;
-  background: radial-gradient(
-    circle,
-    rgba(16, 185, 129, 0.15) 0%,
-    transparent 70%
-  );
+  background: rgba(16,185,129,0.2);
   border-radius: 50%;
+  filter: blur(40px);
 }
 
-.hero-cal-info h3 {
-  margin: 0 0 10px 0;
-  font-size: 1.5rem;
-}
-.hero-cal-info p {
-  color: #94a3b8;
-  margin: 0 0 25px 0;
-  font-size: 1rem;
-}
-
-.btn-primary-glow {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
-  transition: all 0.3s;
-}
-.btn-primary-glow:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 25px rgba(16, 185, 129, 0.4);
-}
-
-.cal-ring-container {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.cal-ring {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cal-ring-inner {
-  width: 115px;
-  height: 115px;
-  background: #1e293b;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.cal-ring-inner h2 {
-  margin: 0;
-  font-size: 2.2rem;
-  line-height: 1;
-}
-.cal-ring-inner span {
-  color: #94a3b8;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.cal-labels {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 0.9rem;
-  color: #cbd5e1;
-  font-weight: 500;
-}
-.dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: 6px;
-}
-.dot.green {
-  background: #10b981;
-}
-.dot.gray {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* GRID HIGHLIGHTS */
-.dash-grid-2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-}
-
-.card-solid {
-  background: white;
-  padding: 25px;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-  border: 1px solid #e2e8f0;
-}
-
-.card-header-icon {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.card-header-icon h4 {
-  margin: 0;
-  color: #475569;
-  font-size: 1.1rem;
-}
-.link-text {
-  color: #3b82f6;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-/* BMI CARD */
-.bmi-flex {
-  display: flex;
-  align-items: baseline;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-.bmi-score {
-  margin: 0;
-  font-size: 3rem;
-  color: #0f172a;
-  font-weight: 800;
-}
-.bmi-status {
+.main-impact .badge {
+  background: rgba(16,185,129,0.1);
+  color: #10b981;
   padding: 6px 14px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-.bmi-status.normal {
-  background: #dcfce7;
-  color: #059669;
-}
-
-.bmi-bar {
-  height: 8px;
-  width: 100%;
-  background: linear-gradient(
-    90deg,
-    #60a5fa 20%,
-    #34d399 40%,
-    #34d399 60%,
-    #fbbf24 80%,
-    #ef4444 100%
-  );
-  border-radius: 10px;
-  position: relative;
-  margin-bottom: 10px;
-}
-.bmi-marker {
-  position: absolute;
-  top: -6px;
-  width: 4px;
-  height: 20px;
-  background: #0f172a;
-  border-radius: 2px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-.bmi-legend {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  color: #94a3b8;
-  font-weight: 600;
-}
-
-/* WATER TRACKER */
-.water-count {
-  background: #eff6ff;
-  color: #2563eb;
-  padding: 4px 12px;
   border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-.water-visual {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 15px;
-}
-.water-glass {
-  font-size: 1.8rem;
-  cursor: pointer;
-  filter: grayscale(100%) opacity(0.4);
-  transition: all 0.3s;
-}
-.water-glass.filled {
-  filter: none;
-}
-.water-hint {
-  margin: 15px 0 0 0;
   font-size: 0.8rem;
-  color: #94a3b8;
-  text-align: center;
+  font-weight: 700;
 }
 
-/* QUICK NAV SECTION */
-.quick-nav-section h3 {
-  color: #1e293b;
-  margin: 10px 0 20px 0;
-  font-size: 1.3rem;
+.main-impact h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 20px 0 10px;
 }
-.quick-nav-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+.main-impact h2 small {
+  font-size: 1.2rem;
+  color: #94a3b8;
+}
+
+.impact-chart-mock {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 100px;
+  margin-top: 20px;
+}
+
+.impact-chart-mock .bar {
+  width: 30px;
+  background: #10b981;
+  border-radius: 6px;
+  opacity: 0.5;
+}
+
+/* Mini Stats */
+.stat-mini {
+  display: flex;
+  align-items: center;
   gap: 20px;
 }
 
-.nav-box {
-  background: white;
-  padding: 25px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  text-align: center;
-  border: 1px solid #e2e8f0;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.stat-mini .icon-box {
+  width: 60px;
+  height: 60px;
+  background: #f1f5f9;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
 }
 
-.nav-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
-}
-
-.nav-icon {
-  font-size: 2.5rem;
-  display: block;
-  margin-bottom: 15px;
-}
-.nav-box h4 {
-  margin: 0 0 5px 0;
+.stat-mini h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
   color: #0f172a;
-  font-size: 1.1rem;
-}
-.nav-box p {
   margin: 0;
+}
+
+.stat-mini p {
   color: #64748b;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Health Ring */
+.health-ring-card {
+  text-align: center;
+}
+
+.ring-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+}
+
+.ring-container svg {
+  transform: rotate(-90deg);
+}
+
+.ring-container circle {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.ring-container .bg { stroke: #f1f5f9; }
+.ring-container .progress {
+  stroke: #10b981;
+  stroke-dasharray: 251.2;
+  stroke-dashoffset: 37; /* 85% */
+}
+
+.ring-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ring-text strong { font-size: 1.8rem; display: block; color: #0f172a; }
+.ring-text span { font-size: 0.8rem; color: #64748b; }
+
+.ring-labels {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 5px; }
+.dot.fresh { background: #10b981; }
+.dot.warning { background: #f59e0b; }
+
+/* Recent Scans */
+.recent-scans {
+  grid-column: span 2;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.text-btn {
+  background: none;
+  border: none;
+  color: #10b981;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.scan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.scan-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+
+.scan-item:hover {
+  background: #f8fafc;
+  transform: translateX(5px);
+}
+
+.item-img {
+  width: 45px;
+  height: 45px;
+  background: #f1f5f9;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 15px;
+}
+
+.item-info { flex: 1; }
+.item-info .item-name { font-weight: 700; color: #0f172a; margin: 0; }
+.item-info .item-time { font-size: 0.8rem; color: #94a3b8; margin: 0; }
+
+.item-status {
+  padding: 6px 14px;
+  border-radius: 10px;
   font-size: 0.85rem;
-}
-
-.food-db:hover {
-  border-color: #ef4444;
-}
-.progress-db:hover {
-  border-color: #3b82f6;
-}
-.scan-db:hover {
-  border-color: #10b981;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero-cal-card {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
-  .cal-ring-container {
-    flex-direction: column;
-  }
-  .dash-topbar {
-    padding-bottom: 100px;
-  }
+  font-weight: 700;
 }

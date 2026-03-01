@@ -4,142 +4,149 @@ import { motion } from "framer-motion";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-  const [userName, setUserName] = useState("Pengguna Cerdas");
+  const [userName, setUserName] = useState("Pro Merchant");
   
-  // Simulasi Data Statistik Buah
-  const stats = {
-    totalScan: 48,
-    savedFood: "12.5 kg",
-    healthAlerts: 3
-  };
-
   useEffect(() => {
     const storedUser = localStorage.getItem("aai_user");
     if (storedUser) {
-      const parsedUser = JSON.parse(storedUser);
-      setUserName(parsedUser.name);
+      try {
+        const parsedUser = JSON.parse(storedUser);
+        if (parsedUser && parsedUser.name) {
+          setUserName(parsedUser.name);
+        }
+      } catch (error) {
+        console.error("Error parsing user data:", error);
+      }
     }
   }, []);
 
   const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
-  };
-  
-  const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 100 },
-    },
+    visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.1 } }
   };
 
   return (
-    <div className="dash-wrapper">
-      <header className="dash-topbar">
-        <div className="dash-greeting">
-          <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-            Pantau kesehatan buah & stok Anda hari ini
-          </motion.p>
-          <motion.h2 initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }}>
-            Halo, {userName}! 👋
-          </motion.h2>
+    <div className="pro-dashboard-wrapper">
+      {/* --- SIDEBAR NAV --- */}
+      <aside className="pro-sidebar">
+        <div className="sidebar-logo">
+          <span className="logo-dot"></span> FruitScan.AI
         </div>
-        <div className="dash-actions">
-          <button className="icon-btn-glass">
-            🔔<span className="badge-dot"></span>
-          </button>
-          <Link to="/scan">
-            <img
-              src={`https://ui-avatars.com/api/?name=${userName}&background=10b981&color=fff`}
-              alt="Profile"
-              className="dash-avatar"
-            />
-          </Link>
+        <nav className="sidebar-nav">
+          <Link to="/dashboard" className="nav-item active">📊 Dashboard</Link>
+          <Link to="/scan" className="nav-item">📷 AI Scanner</Link>
+          <Link to="/inventory" className="nav-item">📦 Inventory</Link>
+          <Link to="/report" className="nav-item">📈 Analytics</Link>
+          <div className="nav-divider"></div>
+          <Link to="/profil-target" className="nav-item">⚙️ Settings</Link>
+        </nav>
+        <div className="sidebar-user">
+          <img src={`https://ui-avatars.com/api/?name=${userName}&background=10b981&color=fff`} alt="User" />
+          <div className="user-info">
+            <p className="name">{userName}</p>
+            <p className="role">Premium Plan</p>
+          </div>
         </div>
-      </header>
+      </aside>
 
-      <motion.main className="dash-main" variants={containerVariants} initial="hidden" animate="visible">
-        {/* --- HERO SCAN CARD --- */}
-        <motion.div className="card-glass hero-cal-card" variants={itemVariants}>
-          <div className="hero-cal-info">
-            <h3>Deteksi Buah Baru</h3>
-            <p>Ambil foto buah untuk mengetahui tingkat kesegarannya secara instan.</p>
-            <Link to="/scan" className="btn-primary-glow">
-              <span>📷</span> Mulai Scan AI
-            </Link>
+      {/* --- MAIN CONTENT --- */}
+      <main className="pro-main">
+        <header className="pro-header">
+          <div className="header-text">
+            <h1>Command Center</h1>
+            <p>Welcome back, here's your fruit health overview.</p>
+          </div>
+          <div className="header-actions">
+            <button className="btn-icon">🔔</button>
+            <Link to="/scan" className="btn-pro-primary">New Scan +</Link>
+          </div>
+        </header>
+
+        <motion.div 
+          className="pro-bento-grid"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Main Stat: Impact */}
+          <div className="bento-item main-impact">
+            <div className="impact-bg-shape"></div>
+            <span className="badge">Sustainability Impact</span>
+            <h2>128.5 <small>kg</small></h2>
+            <p>Food saved from being wasted this month</p>
+            <div className="impact-chart-mock">
+              <div className="bar" style={{height: '40%'}}></div>
+              <div className="bar" style={{height: '70%'}}></div>
+              <div className="bar" style={{height: '50%'}}></div>
+              <div className="bar" style={{height: '90%'}}></div>
+              <div className="bar" style={{height: '60%'}}></div>
+            </div>
           </div>
 
-          <div className="cal-ring-container">
-            <div className="cal-ring" style={{ background: `conic-gradient(#10b981 75%, rgba(255,255,255,0.2) 25%)` }}>
-              <div className="cal-ring-inner">
-                <h2>{stats.totalScan}</h2>
-                <span>Total Scan</span>
+          {/* Stat 2: Accuracy */}
+          <div className="bento-item stat-mini">
+            <div className="icon-box">🎯</div>
+            <div className="text">
+              <h3>98.2%</h3>
+              <p>Scan Accuracy</p>
+            </div>
+          </div>
+
+          {/* Stat 3: Speed */}
+          <div className="bento-item stat-mini">
+            <div className="icon-box">⚡</div>
+            <div className="text">
+              <h3>0.8s</h3>
+              <p>Avg. Scan Speed</p>
+            </div>
+          </div>
+
+          {/* Inventory Health Ring */}
+          <div className="bento-item health-ring-card">
+            <h3>Inventory Health</h3>
+            <div className="ring-container">
+              <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" className="bg" />
+                <circle cx="50" cy="50" r="40" className="progress" />
+              </svg>
+              <div className="ring-text">
+                <strong>85%</strong>
+                <span>Fresh</span>
               </div>
+            </div>
+            <div className="ring-labels">
+              <p><span className="dot fresh"></span> 42 Fresh</p>
+              <p><span className="dot warning"></span> 8 Expiring</p>
+            </div>
+          </div>
+
+          {/* Recent Scans Feed */}
+          <div className="bento-item recent-scans">
+            <div className="card-header">
+              <h3>Recent Analysis</h3>
+              <button className="text-btn">View All</button>
+            </div>
+            <div className="scan-list">
+              {[
+                { name: 'Banana Cavendish', status: 'Fresh', time: '2m ago', color: '#10b981' },
+                { name: 'Red Apple', status: 'Expiring', time: '1h ago', color: '#f59e0b' },
+                { name: 'Avocado', status: 'Critical', time: '3h ago', color: '#ef4444' },
+              ].map((item, i) => (
+                <div key={i} className="scan-item">
+                  <div className="item-img">🍎</div>
+                  <div className="item-info">
+                    <p className="item-name">{item.name}</p>
+                    <p className="item-time">{item.time}</p>
+                  </div>
+                  <div className="item-status" style={{ color: item.color, background: `${item.color}15` }}>
+                    {item.status}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>
-
-        <div className="dash-grid-2">
-          {/* Food Waste Impact */}
-          <motion.div className="card-solid bmi-card" variants={itemVariants}>
-            <div className="card-header-icon">
-              <h4>♻️ Dampak Lingkungan</h4>
-            </div>
-            <div className="bmi-flex" style={{ margin: '20px 0' }}>
-              <h1 className="bmi-score" style={{ color: '#10b981' }}>{stats.savedFood}</h1>
-              <div className="bmi-status normal">Food Saved</div>
-            </div>
-            <p style={{ fontSize: '0.9rem', color: '#64748b' }}>
-              Anda telah membantu mencegah pembuangan makanan setara dengan {stats.savedFood} melalui deteksi dini.
-            </p>
-          </motion.div>
-
-          {/* Quick Stats */}
-          <motion.div className="card-solid water-card" variants={itemVariants}>
-            <div className="card-header-icon">
-              <h4>📊 Ringkasan Stok</h4>
-            </div>
-            <div className="stats-list" style={{ marginTop: '15px' }}>
-              <div className="stat-item-simple">
-                <span>🟢 Segar (Layak)</span>
-                <span style={{ fontWeight: '700' }}>85%</span>
-              </div>
-              <div className="stat-item-simple">
-                <span>🟡 Perlu Segera Jual</span>
-                <span style={{ fontWeight: '700' }}>10%</span>
-              </div>
-              <div className="stat-item-simple">
-                <span>🔴 Tidak Layak</span>
-                <span style={{ fontWeight: '700' }}>5%</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* --- RECENT SCANS --- */}
-        <motion.div className="quick-nav-section" variants={itemVariants}>
-          <h3>Riwayat Deteksi Terakhir</h3>
-          <div className="quick-nav-grid">
-            <div className="nav-box food-db">
-              <span className="nav-icon">🍌</span>
-              <h4>Pisang Ambon</h4>
-              <p>Status: Mulai Busuk (2 hari)</p>
-            </div>
-            <div className="nav-box progress-db">
-              <span className="nav-icon">🍎</span>
-              <h4>Apel Merah</h4>
-              <p>Status: Segar (12 hari)</p>
-            </div>
-            <div className="nav-box scan-db">
-              <span className="nav-icon">🍊</span>
-              <h4>Jeruk Mandarin</h4>
-              <p>Status: Segar (5 hari)</p>
-            </div>
-          </div>
-        </motion.div>
-      </motion.main>
+      </main>
     </div>
   );
 };

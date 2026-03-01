@@ -1,158 +1,110 @@
-.pt-layout {
+.settings-page-wrapper {
+  padding: 40px 50px;
+  background: #f1f5f9;
   min-height: 100vh;
-  background-color: #f4f7fa;
-  font-family: "Inter", sans-serif;
-  padding-bottom: 50px;
 }
 
-.top-bar-pt {
-  height: 90px;
-  padding: 0 5%;
-  background-color: #e53935;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(229, 57, 53, 0.2);
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
-
-.pt-header-title {
-  text-align: center;
-}
-.pt-header-title h3 {
-  margin: 0;
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-.pt-header-title p {
-  margin: 2px 0 0 0;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.pt-content {
-  max-width: 800px;
-  margin: 40px auto 0;
-  padding: 0 5%;
-}
-
-.pt-form-container {
-  background: white;
-  padding: 35px;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  border: 1px solid #e2e8f0;
-}
-
-.pt-section {
+.settings-header {
   margin-bottom: 40px;
 }
-.pt-section-title {
-  margin: 0 0 20px 0;
-  font-size: 1.2rem;
-  color: #1e293b;
-  border-bottom: 2px solid #f1f5f9;
-  padding-bottom: 10px;
+
+.settings-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
 }
 
-.pt-grid-inputs {
+.settings-container-glass {
+  background: white;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px;
+  border-radius: 32px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.settings-section {
+  margin-bottom: 50px;
+}
+
+.settings-section h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+.mode-selector-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
-.input-group {
+.mode-card {
+  border: 2px solid #f1f5f9;
+  padding: 30px;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.mode-card:hover {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.mode-card.active {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.mode-icon { font-size: 2.5rem; margin-bottom: 15px; }
+.mode-card h4 { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
+.mode-card p { font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.5; }
+
+.toggle-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-.input-group label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #64748b;
-}
-.input-group input,
-.input-group select {
-  padding: 12px 15px;
-  border: 1px solid #cbd5e1;
-  border-radius: 12px;
-  font-size: 1rem;
-  color: #1e293b;
-  outline: none;
-  transition: border-color 0.3s;
-}
-.input-group input:focus,
-.input-group select:focus {
-  border-color: #e53935;
+  gap: 20px;
 }
 
-.target-cards {
+.toggle-item {
   display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.target-card {
-  flex: 1;
-  min-width: 200px;
-  background: #f8fafc;
-  border: 2px solid #e2e8f0;
-  border-radius: 16px;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s;
-  position: relative;
+  background: #f8fafc;
+  border-radius: 16px;
 }
 
-.target-card input[type="radio"] {
-  display: none;
-}
-.target-card:hover {
-  border-color: #cbd5e1;
-  transform: translateY(-3px);
-}
-.target-card.active {
-  border-color: #e53935;
-  background: #fff1f0;
-  box-shadow: 0 10px 20px rgba(229, 57, 53, 0.1);
-}
+.toggle-info strong { display: block; font-size: 1rem; color: #0f172a; }
+.toggle-info p { margin: 5px 0 0 0; font-size: 0.85rem; color: #64748b; }
 
-.target-icon {
-  font-size: 2.5rem;
-  display: block;
-  margin-bottom: 15px;
-}
-.target-card h5 {
-  margin: 0 0 5px 0;
-  font-size: 1.1rem;
-  color: #1e293b;
-}
-.target-card p {
-  margin: 0;
-  font-size: 0.85rem;
-  color: #64748b;
-}
-
-.btn-save-profile {
+.btn-save-settings {
   width: 100%;
-  padding: 16px;
-  background: #e53935;
+  background: #10b981;
   color: white;
   border: none;
-  border-radius: 12px;
+  padding: 18px;
+  border-radius: 16px;
+  font-weight: 800;
   font-size: 1.1rem;
-  font-weight: 700;
   cursor: pointer;
-  transition:
-    background 0.2s,
-    transform 0.2s;
+  margin-bottom: 15px;
 }
 
-.btn-save-profile:hover {
-  background: #c62828;
-  transform: translateY(-2px);
+.btn-logout-alt {
+  width: 100%;
+  background: none;
+  border: 1px solid #e2e8f0;
+  color: #ef4444;
+  padding: 18px;
+  border-radius: 16px;
+  font-weight: 700;
+  cursor: pointer;
 }

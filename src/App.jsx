@@ -1,23 +1,20 @@
-// src/App.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// Import Komponen Lama
+// Import Komponen Utama
 import LandingPage from "./components/LandingPage";
 import Login from "./components/login";
 import Register from "./components/register";
 import Dashboard from "./components/Dashboard";
+import FruitScanner from "./components/FruitScanner";
 
-// Import Komponen Baru (Disini kuncinya! Kita import dengan nama "Jurnal")
-import Jurnal from "./components/Jurnal";
+// Komponen Pendukung (Perlu Penyesuaian Konten)
 import ProfilTarget from "./components/ProfilTarget";
 import ProgresLaporan from "./components/ProgresLaporan";
 import DatabaseMakanan from "./components/DatabaseMakanan";
-import FruitScanner from "./components/FruitScanner";
 
 import "./App.css";
 
-// --- ROUTER & GABUNGAN APLIKASI ---
 export default function App() {
   return (
     <Router
@@ -27,29 +24,23 @@ export default function App() {
       }}
     >
       <Routes>
-        {/* Rute "/" HANYA menampilkan Landing Page */}
+        {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
-
-        {/* Rute Autentikasi */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Rute "/dashboard" HANYA menampilkan Dashboard */}
+        {/* Protected Routes (Dashboard Area) */}
         <Route path="/dashboard" element={<Dashboard />} />
-
-        {/* --- FITUR UTAMA: FRUIT SCANNER --- */}
         <Route path="/scan" element={<FruitScanner />} />
         
-        {/* Rute Lama (Opsional: Bisa dihapus nanti) */}
-        <Route path="/jurnal" element={<Jurnal />} />
-        <Route path="/database-makanan" element={<DatabaseMakanan />} />
-
-        {/* Rute Profil & Target */}
+        {/* Analytics & Inventory (Re-purposed from old components) */}
+        <Route path="/inventory" element={<DatabaseMakanan />} />
+        <Route path="/report" element={<ProgresLaporan />} />
+        <Route path="/settings" element={<ProfilTarget />} />
         <Route path="/profil-target" element={<ProfilTarget />} />
 
-        {/* Rute Progres Laporan */}
-        <Route path="/progres-laporan" element={<ProgresLaporan />} />
-        <Route path="/progres" element={<ProgresLaporan />} />
+        {/* Fallback for old nutrition routes */}
+        <Route path="/jurnal" element={<Dashboard />} />
       </Routes>
     </Router>
   );
