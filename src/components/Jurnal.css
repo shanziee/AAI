@@ -1,0 +1,339 @@
+/* src/components/JurnalKalori.css */
+
+.jurnal-layout {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: "Inter", sans-serif;
+  padding-bottom: 100px; /* Spacer untuk floating bar */
+}
+
+/* =========================================
+   TOP BAR (Varian Merah #e53935)
+   ========================================= */
+.top-bar-jurnal {
+  height: 90px;
+  padding: 0 5%;
+  background-color: #e53935;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(229, 57, 53, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 50px;
+  transition: background 0.2s;
+}
+
+.btn-back:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.jurnal-header-title {
+  text-align: center;
+}
+
+.jurnal-header-title h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.jurnal-header-title p {
+  margin: 2px 0 0 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================
+   KONTEN UTAMA
+   ========================================= */
+.jurnal-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 5%;
+}
+
+/* --- PILIH WAKTU MAKAN (TABS) --- */
+.meal-type-selector {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+.meal-type-selector::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.meal-pill {
+  white-space: nowrap;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  color: #64748b;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.meal-pill:hover {
+  border-color: #e53935;
+  color: #e53935;
+}
+
+.meal-pill.active {
+  background: #e53935;
+  color: white;
+  border-color: #e53935;
+  box-shadow: 0 4px 10px rgba(229, 57, 53, 0.2);
+}
+
+/* --- PENCARIAN MAKANAN --- */
+.search-container {
+  margin-bottom: 30px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 5px 15px;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.search-box:focus-within {
+  border-color: #e53935;
+  box-shadow: 0 0 0 4px rgba(229, 57, 53, 0.1);
+}
+
+.search-icon {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  color: #94a3b8;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.search-box input::placeholder {
+  color: #94a3b8;
+}
+
+.clear-search {
+  background: #f1f5f9;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+/* --- DAFTAR MAKANAN --- */
+.food-list-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.food-item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 18px 20px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.food-item-card:hover {
+  transform: translateX(5px);
+  border-color: #cbd5e1;
+}
+
+.food-item-card.selected {
+  border-color: #10b981;
+  background: #ecfdf5;
+}
+
+.food-item-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+  color: #1e293b;
+}
+
+.food-item-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.category-tag-small {
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #475569;
+}
+
+.food-item-action {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.food-cal {
+  font-weight: 700;
+  color: #e53935;
+  font-size: 1.05rem;
+}
+
+.btn-select-food {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  background: white;
+  color: #64748b;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-select-food.active {
+  background: #10b981;
+  border-color: #10b981;
+  color: white;
+}
+
+/* --- EMPTY STATE --- */
+.empty-search {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.empty-search p {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.btn-tambah-manual {
+  background: white;
+  color: #e53935;
+  border: 1px solid #e53935;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================================
+   FLOATING BOTTOM BAR (SUMMARY)
+   ========================================= */
+.floating-summary-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) !important; /* Timpa animasi X framer motion */
+  width: 90%;
+  max-width: 600px;
+  background: #1e293b;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.summary-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.summary-info h3 {
+  margin: 2px 0 0 0;
+  font-size: 1.4rem;
+  color: #10b981;
+}
+
+.summary-info h3 span {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+}
+
+.btn-simpan-jurnal {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+.btn-simpan-jurnal:hover {
+  background: #059669;
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .floating-summary-bar {
+    width: 95%;
+    bottom: 15px;
+    padding: 15px;
+  }
+  .btn-simpan-jurnal {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}

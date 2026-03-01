@@ -1,0 +1,400 @@
+/* src/components/Dashboard.css */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+.dash-wrapper {
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  padding-bottom: 60px;
+}
+
+/* --- TOP BAR (Redesign Merah Elegan) --- */
+.dash-topbar {
+  background: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
+  padding: 30px 5% 80px 5%; /* Padding bawah ekstra untuk efek melayang card */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 10px 30px rgba(229, 57, 53, 0.2);
+}
+
+.dash-greeting p {
+  margin: 0 0 5px 0;
+  font-size: 0.9rem;
+  color: #ffcdd2;
+  font-weight: 500;
+}
+
+.dash-greeting h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.dash-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-btn-glass {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 45px;
+  height: 45px;
+  border-radius: 14px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.icon-btn-glass:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.badge-dot {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 8px;
+  height: 8px;
+  background: #ffeb3b;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffeb3b;
+}
+
+.dash-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 2px solid white;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.dash-avatar:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+/* --- MAIN CONTENT --- */
+.dash-main {
+  max-width: 1100px;
+  margin: -50px auto 0; /* Menarik konten ke atas agar melayang di atas header merah */
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* HERO CALORIE CARD */
+.hero-cal-card {
+  background: #1e293b;
+  border-radius: 24px;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-cal-card::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+}
+
+.hero-cal-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+}
+.hero-cal-info p {
+  color: #94a3b8;
+  margin: 0 0 25px 0;
+  font-size: 1rem;
+}
+
+.btn-primary-glow {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s;
+}
+.btn-primary-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(16, 185, 129, 0.4);
+}
+
+.cal-ring-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.cal-ring {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cal-ring-inner {
+  width: 115px;
+  height: 115px;
+  background: #1e293b;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cal-ring-inner h2 {
+  margin: 0;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+.cal-ring-inner span {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cal-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.dot.green {
+  background: #10b981;
+}
+.dot.gray {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* GRID HIGHLIGHTS */
+.dash-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.card-solid {
+  background: white;
+  padding: 25px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+}
+
+.card-header-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.card-header-icon h4 {
+  margin: 0;
+  color: #475569;
+  font-size: 1.1rem;
+}
+.link-text {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* BMI CARD */
+.bmi-flex {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.bmi-score {
+  margin: 0;
+  font-size: 3rem;
+  color: #0f172a;
+  font-weight: 800;
+}
+.bmi-status {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.bmi-status.normal {
+  background: #dcfce7;
+  color: #059669;
+}
+
+.bmi-bar {
+  height: 8px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #60a5fa 20%,
+    #34d399 40%,
+    #34d399 60%,
+    #fbbf24 80%,
+    #ef4444 100%
+  );
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.bmi-marker {
+  position: absolute;
+  top: -6px;
+  width: 4px;
+  height: 20px;
+  background: #0f172a;
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.bmi-legend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* WATER TRACKER */
+.water-count {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.water-visual {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.water-glass {
+  font-size: 1.8rem;
+  cursor: pointer;
+  filter: grayscale(100%) opacity(0.4);
+  transition: all 0.3s;
+}
+.water-glass.filled {
+  filter: none;
+}
+.water-hint {
+  margin: 15px 0 0 0;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+/* QUICK NAV SECTION */
+.quick-nav-section h3 {
+  color: #1e293b;
+  margin: 10px 0 20px 0;
+  font-size: 1.3rem;
+}
+.quick-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.nav-box {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+}
+
+.nav-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 15px;
+}
+.nav-box h4 {
+  margin: 0 0 5px 0;
+  color: #0f172a;
+  font-size: 1.1rem;
+}
+.nav-box p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.food-db:hover {
+  border-color: #ef4444;
+}
+.progress-db:hover {
+  border-color: #3b82f6;
+}
+.scan-db:hover {
+  border-color: #10b981;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-cal-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .cal-ring-container {
+    flex-direction: column;
+  }
+  .dash-topbar {
+    padding-bottom: 100px;
+  }
+}

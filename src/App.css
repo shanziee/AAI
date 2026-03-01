@@ -1,0 +1,99 @@
+/* src/App.css */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* PENAKLUK FULL SCREEN */
+html,
+body,
+#root {
+  width: 100vw !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f4fcf7;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+}
+
+.dashboard-section {
+  min-height: 100vh;
+  padding-bottom: 5rem;
+  background-color: #f4fcf7;
+}
+
+/* --- TOP BAR PERBAIKAN (FULL SCREEN) --- */
+.top-bar {
+  width: 100vw;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  border-radius: 0; /* Menghapus lengkungan agar nempel ke tepi layar */
+}
+
+.greeting p {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+  color: #e8f5e9;
+  letter-spacing: 0.5px;
+}
+
+.greeting h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.btn-green {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+}
+
+.btn-green:hover {
+  background-color: #2ecc71;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.super-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  height: 100%;
+}
+
+.super-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-header-green {
+  background-color: #eafaf1;
+  color: #27ae60;
+  font-weight: 700;
+  padding: 1.2rem 1.5rem;
+  border-bottom: 2px solid #d5f5e3;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
