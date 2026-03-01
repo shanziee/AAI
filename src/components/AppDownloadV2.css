@@ -1,0 +1,163 @@
+/* --- APP DOWNLOAD SECTION V2 --- */
+.app-download-section-v2 {
+  padding: 100px 0;
+  background: white;
+}
+
+.app-flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.app-content-v2 {
+  flex: 1.2;
+}
+
+.app-badge-v2 {
+  display: inline-block;
+  background: #f0fdf4;
+  color: #10b981;
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+
+.app-title-v2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.app-desc-v2 {
+  font-size: 1.2rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.app-features-list-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.app-feature-v2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.check-icon {
+  width: 24px;
+  height: 24px;
+  background: #10b981;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+/* BUTTON ANDROID */
+.btn-android-v2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  background: #0f172a;
+  color: white;
+  padding: 15px 35px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-android-v2:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+}
+
+.android-icon {
+  font-size: 2.5rem;
+}
+
+.btn-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-text span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.btn-text strong {
+  font-size: 1.4rem;
+}
+
+/* VISUAL MOBILE */
+.app-visual-v2 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.phone-mockup-v2 {
+  width: 300px;
+  height: 600px;
+  background: #1e293b;
+  border-radius: 40px;
+  padding: 12px;
+  box-shadow: 0 50px 100px -20px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.phone-mockup-v2 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.floating-notif {
+  position: absolute;
+  top: 30%;
+  right: -60px;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 250px;
+  border: 1px solid #f1f5f9;
+  animation: floatNotif 4s ease-in-out infinite;
+}
+
+@keyframes floatNotif {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.notif-icon { font-size: 1.5rem; }
+.notif-text strong { display: block; font-size: 0.9rem; color: #ef4444; }
+.notif-text p { font-size: 0.8rem; color: #64748b; margin: 0; }
+
+@media (max-width: 900px) {
+  .app-flex-container { flex-direction: column; text-align: center; }
+  .app-feature-v2 { justify-content: center; }
+  .btn-android-v2 { margin: 0 auto; }
+  .floating-notif { right: 50%; transform: translateX(50%); bottom: -50px; top: auto; }
+}

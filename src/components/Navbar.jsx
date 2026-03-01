@@ -33,24 +33,30 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
         {/* Kiri: Logo */}
-        <div
+        <Link 
+          to="/" 
           className="navbar-logo"
+          style={{ textDecoration: 'none' }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <span className="logo-highlight">FruitScan</span> AI
-        </div>
+        </Link>
 
         {/* Tengah: Menu Navigasi Utama */}
         <div className={`navbar-menu ${menuOpen ? "active" : ""}`}>
           <ul className="nav-links">
-            <li onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-              Home
+            <li>
+              <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} onClick={() => setMenuOpen(false)}>Home</Link>
             </li>
             <li>
-              <Link to="/scan" style={{ textDecoration: 'none', color: 'inherit' }}>Scan Buah</Link>
+              <Link to="/artikel" style={{ textDecoration: 'none', color: 'inherit' }} onClick={() => setMenuOpen(false)}>Artikel</Link>
             </li>
-            <li onClick={() => scrollToSection("problem-section")}>Solusi</li>
-            <li onClick={() => scrollToSection("faq-section")}>FAQ</li>
+            <li>
+              <Link to="/impact" style={{ textDecoration: 'none', color: 'inherit' }}>Impact</Link>
+            </li>
+            <li>
+              <Link to="/bantuan" style={{ textDecoration: 'none', color: 'inherit' }}>Bantuan</Link>
+            </li>
           </ul>
 
           {/* Kanan: Tombol Call to Action */}

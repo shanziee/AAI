@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import "./LandingPage.css";
+import "./AppDownloadV2.css";
 
 const LandingPage = () => {
   const [offsetY, setOffsetY] = useState(0);
@@ -22,24 +23,25 @@ const LandingPage = () => {
         {/* --- 1. ULTRA HERO SECTION --- */}
         <section className="ultra-hero">
           <div className="hero-bg-gradient"></div>
-          
+
           <div className="ultra-container">
             <div className="hero-content-left">
               <div className="status-pill">
                 <span className="dot-pulse"></span>
                 <span>AI Vision V2.0 Online</span>
               </div>
-              
+
               <h1 className="ultra-title">
                 Selamatkan <br />
                 <span className="text-outline">Makanan.</span> <br />
                 <span className="text-gradient">Dompet.</span> <br />
                 <span className="text-outline">Bumi.</span>
               </h1>
-              
+
               <p className="ultra-desc">
-                Teknologi deteksi buah berbasis AI yang mengubah kamera HP Anda 
-                menjadi laboratorium kesegaran instan. Akurasi 98% dalam hitungan detik.
+                Teknologi deteksi buah berbasis AI yang mengubah kamera HP Anda
+                menjadi laboratorium kesegaran instan. Akurasi 98% dalam
+                hitungan detik.
               </p>
 
               <div className="hero-btns">
@@ -60,24 +62,30 @@ const LandingPage = () => {
 
             <div className="hero-visual-right">
               {/* 3D Floating Phone Mockup */}
-              <div 
+              <div
                 className="phone-3d-container"
                 style={{ transform: `translateY(${offsetY * 0.1}px)` }}
               >
                 <div className="phone-bezel">
                   <div className="phone-screen">
-                    <img src="/preview-mobile.jpeg" alt="App Interface" className="screen-img" />
+                    <img
+                      src="/preview-mobile.jpeg"
+                      alt="App Interface"
+                      className="screen-img"
+                    />
                     <div className="scanner-overlay">
                       <div className="scan-laser"></div>
                       <div className="scan-data-box">
                         <span className="scan-label">Pisang Cavendish</span>
-                        <div className="scan-bar"><div className="fill-90"></div></div>
+                        <div className="scan-bar">
+                          <div className="fill-90"></div>
+                        </div>
                         <span className="scan-status">Segar (91%)</span>
                       </div>
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Floating Elements behind phone */}
                 <div className="float-bubble bubble-1">
                   <span>🍌</span>
@@ -96,25 +104,33 @@ const LandingPage = () => {
         {/* --- 2. INFINITE MARQUEE --- */}
         <div className="marquee-strip">
           <div className="marquee-content">
-            <span>STOP FOOD WASTE • AI POWERED • HEALTHY LIFESTYLE • SMART DETECTION • SAVE MONEY • STOP FOOD WASTE • AI POWERED • HEALTHY LIFESTYLE • SMART DETECTION • SAVE MONEY •</span>
+            <span>
+              STOP FOOD WASTE • AI POWERED • HEALTHY LIFESTYLE • SMART DETECTION
+              • SAVE MONEY • STOP FOOD WASTE • AI POWERED • HEALTHY LIFESTYLE •
+              SMART DETECTION • SAVE MONEY •
+            </span>
           </div>
         </div>
 
-        {/* --- 3. BENTO GRID FEATURES --- */}
-        <section className="bento-section">
+        {/* --- 3. IMPACT BENTO GRID --- */}
+        <section id="problem-section" className="bento-section">
           <div className="ultra-container">
             <h2 className="section-title-center">
-              Kecerdasan Buatan <br />
-              <span className="highlight-green">Dalam Genggaman</span>
+              Dampak Nyata <br />
+              <span className="highlight-green">Untuk Masa Depan</span>
             </h2>
 
             <div className="bento-grid">
               {/* Box 1: AI Accuracy (Large) */}
               <div className="bento-box box-large glowing-border">
                 <div className="bento-content">
-                  <div className="icon-circle">🧠</div>
-                  <h3>Deep Learning Core</h3>
-                  <p>Model AI kami dilatih dengan jutaan dataset buah untuk membedakan lebam kecil vs busuk berbahaya.</p>
+                  <div className="icon-circle">🔬</div>
+                  <h3>Presisi Tanpa Kompromi</h3>
+                  <p>
+                    AI kami mendeteksi degradasi seluler buah sebelum mata
+                    manusia dapat melihatnya, mencegah Anda mengonsumsi toksin
+                    jamur yang berbahaya.
+                  </p>
                   <div className="ai-visualizer">
                     <div className="bar b1"></div>
                     <div className="bar b2"></div>
@@ -125,58 +141,126 @@ const LandingPage = () => {
                 </div>
               </div>
 
-              {/* Box 2: Speed (Tall) */}
+              {/* Box 2: Environmental (Tall) */}
               <div className="bento-box box-tall dark-mode">
                 <div className="bento-content">
                   <div className="speed-meter">
                     <svg viewBox="0 0 100 100">
                       <circle cx="50" cy="50" r="45" className="bg-ring" />
-                      <circle cx="50" cy="50" r="45" className="progress-ring" />
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="45"
+                        className="progress-ring"
+                        style={{ strokeDashoffset: 30 }}
+                      />
                     </svg>
                     <div className="speed-text">
-                      <span className="number">0.8s</span>
-                      <span className="label">Scan Time</span>
+                      <span className="number">30%</span>
+                      <span className="label">Less Waste</span>
                     </div>
                   </div>
-                  <h3>Instan.</h3>
-                  <p>Tidak perlu menunggu. Hasil analisis muncul real-time.</p>
+                  <h3>Misi Hijau.</h3>
+                  <p>
+                    Setiap buah yang tidak terbuang berarti pengurangan gas
+                    metana di TPA dan penghematan air tanah yang signifikan.
+                  </p>
                 </div>
               </div>
 
-              {/* Box 3: Food Waste (Wide) */}
+              {/* Box 3: Economy (Wide) */}
               <div className="bento-box box-wide image-bg">
                 <div className="overlay-dark"></div>
                 <div className="bento-content relative">
-                  <h3>Kurangi Limbah, Hemat Rupiah</h3>
-                  <p>Rata-rata pengguna menghemat Rp 500rb/bulan dengan manajemen stok buah yang lebih baik.</p>
+                  <h3>Efisiensi Ekonomi Pedagang</h3>
+                  <p>
+                    Hindari kerugian total. Sistem kami memberi tahu kapan harus
+                    melakukan diskon cepat sebelum buah kehilangan nilai
+                    jualnya.
+                  </p>
                   <div className="stats-row">
                     <div className="stat">
-                      <strong>12.5kg</strong>
-                      <span>Diselamatkan</span>
+                      <strong>Rp 5jt+</strong>
+                      <span>Potensi Hemat/Bln</span>
                     </div>
                     <div className="stat">
-                      <strong>Rp 1.2M</strong>
-                      <span>Total Hemat</span>
+                      <strong>98%</strong>
+                      <span>Kepuasan Pedagang</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Box 4: Pedagang */}
+              {/* Box 4: Kesehatan */}
               <div className="bento-box box-small">
                 <div className="bento-content">
-                  <div className="icon-circle">🏪</div>
-                  <h3>Untuk Pedagang</h3>
-                  <p>Sortir stok busuk otomatis.</p>
+                  <div className="icon-circle">🛡️</div>
+                  <h3>Proteksi Keluarga</h3>
+                  <p>Pastikan gizi maksimal untuk buah hati Anda.</p>
                 </div>
               </div>
 
-              {/* Box 5: Konsumen */}
+              {/* Box 5: Komunitas */}
               <div className="bento-box box-small">
                 <div className="bento-content">
-                  <div className="icon-circle">🏠</div>
-                  <h3>Untuk Keluarga</h3>
-                  <p>Pastikan gizi terbaik.</p>
+                  <div className="icon-circle">🤝</div>
+                  <h3>Donasi Cerdas</h3>
+                  <p>Salurkan buah layak ke komunitas yang membutuhkan.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* --- 4. MOBILE APP DOWNLOAD SECTION --- */}
+        <section id="faq-section" className="app-download-section-v2">
+          <div className="ultra-container">
+            <div className="app-flex-container">
+              <div className="app-content-v2">
+                <div className="app-badge-v2">📱 Aplikasi Mobile</div>
+                <h2 className="app-title-v2">
+                  Download Aplikasi <br />
+                  <span className="highlight-green">FruitScan AI</span> Sekarang!
+                </h2>
+                <p className="app-desc-v2">
+                  Akses semua fitur kesehatan buah langsung dari smartphone Anda. 
+                  Deteksi AI, riwayat inventaris, dan tips edukasi dalam satu genggaman.
+                </p>
+
+                <div className="app-features-list-v2">
+                  <div className="app-feature-v2">
+                    <span className="check-icon">✓</span>
+                    <span>Scan Buah AI</span>
+                  </div>
+                  <div className="app-feature-v2">
+                    <span className="check-icon">✓</span>
+                    <span>Notifikasi Stok 24/7</span>
+                  </div>
+                  <div className="app-feature-v2">
+                    <span className="check-icon">✓</span>
+                    <span>Riwayat Deteksi</span>
+                  </div>
+                </div>
+
+                <a href="#" className="btn-android-v2">
+                  <div className="android-icon">🤖</div>
+                  <div className="btn-text">
+                    <span>DOWNLOAD UNTUK</span>
+                    <strong>Android</strong>
+                  </div>
+                </a>
+              </div>
+
+              <div className="app-visual-v2">
+                <div className="phone-mockup-v2">
+                  <img src="/preview-mobile.jpeg" alt="Mobile App" />
+                  <div className="floating-notif">
+                    <span className="notif-icon">⚠️</span>
+                    <div className="notif-text">
+                      <strong>Stok Kritis!</strong>
+                      <p>Pisang Anda akan busuk dalam 2 hari.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -188,7 +272,10 @@ const LandingPage = () => {
           <div className="ultra-container">
             <div className="cta-card-glass">
               <div className="cta-text">
-                <h2>Siap Mengubah Cara Anda <br />Mengkonsumsi Buah?</h2>
+                <h2>
+                  Siap Mengubah Cara Anda <br />
+                  Mengkonsumsi Buah?
+                </h2>
                 <p>Bergabunglah dengan revolusi FruitScan AI hari ini.</p>
                 <Link to="/scan" className="btn-white-pulse">
                   Mulai Deteksi Gratis

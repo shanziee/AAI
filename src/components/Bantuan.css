@@ -1,0 +1,123 @@
+.bantuan-page-wrapper {
+  background: #f1f5f9;
+  min-height: 100vh;
+}
+
+.bantuan-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 120px 5% 80px;
+}
+
+.bantuan-hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.bantuan-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.search-box-mock {
+  background: white;
+  padding: 15px 25px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  max-width: 500px;
+  margin: 40px auto 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.search-box-mock input {
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  outline: none;
+}
+
+.faq-section-pro h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 80px;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid #e2e8f0;
+}
+
+.faq-item.active {
+  border-color: #10b981;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #1e293b;
+}
+
+.toggle-icon {
+  font-size: 1.5rem;
+  color: #10b981;
+  font-weight: 700;
+}
+
+.faq-answer {
+  overflow: hidden;
+}
+
+.faq-answer p {
+  padding-top: 20px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-support-card {
+  background: #10b981;
+  color: white;
+  padding: 50px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-text h2 { margin-bottom: 15px; }
+.btn-contact {
+  background: white;
+  color: #10b981;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-weight: 800;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.contact-visual { font-size: 5rem; }
+
+@media (max-width: 768px) {
+  .contact-support-card { flex-direction: column; text-align: center; gap: 30px; }
+}
