@@ -37,7 +37,7 @@ const Navbar = () => {
           className="navbar-logo"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          <span className="logo-highlight">AAI</span> Nutricare
+          <span className="logo-highlight">FruitScan</span> AI
         </div>
 
         {/* Tengah: Menu Navigasi Utama */}
@@ -46,9 +46,10 @@ const Navbar = () => {
             <li onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
               Home
             </li>
-            <li onClick={() => scrollToSection("info-features")}>Layanan</li>
-            {/* Nantinya Anda bisa menambahkan id="about-section" dan id="faq-section" di LandingPage */}
-            <li onClick={() => scrollToSection("about-section")}>Tentang</li>
+            <li>
+              <Link to="/scan" style={{ textDecoration: 'none', color: 'inherit' }}>Scan Buah</Link>
+            </li>
+            <li onClick={() => scrollToSection("problem-section")}>Solusi</li>
             <li onClick={() => scrollToSection("faq-section")}>FAQ</li>
           </ul>
 

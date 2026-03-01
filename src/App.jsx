@@ -13,6 +13,7 @@ import Jurnal from "./components/Jurnal";
 import ProfilTarget from "./components/ProfilTarget";
 import ProgresLaporan from "./components/ProgresLaporan";
 import DatabaseMakanan from "./components/DatabaseMakanan";
+import FruitScanner from "./components/FruitScanner";
 
 import "./App.css";
 
@@ -36,12 +37,11 @@ export default function App() {
         {/* Rute "/dashboard" HANYA menampilkan Dashboard */}
         <Route path="/dashboard" element={<Dashboard />} />
 
-        {/* --- TAMBAHAN RUTE BARU AAI-NUTRICARE --- */}
-
-        {/* Rute Jurnal Kalori / Tambah Makanan (Menggunakan komponen <Jurnal />) */}
+        {/* --- FITUR UTAMA: FRUIT SCANNER --- */}
+        <Route path="/scan" element={<FruitScanner />} />
+        
+        {/* Rute Lama (Opsional: Bisa dihapus nanti) */}
         <Route path="/jurnal" element={<Jurnal />} />
-        <Route path="/tambah-makanan" element={<Jurnal />} />
-        <Route path="/scan-makanan" element={<Jurnal />} />
         <Route path="/database-makanan" element={<DatabaseMakanan />} />
 
         {/* Rute Profil & Target */}
